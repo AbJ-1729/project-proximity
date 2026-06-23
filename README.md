@@ -1,2 +1,2 @@
 # project-proximity
-A zero-knowledge, double-opt-in proximity discovery engine using cryptographic location verification.
+Ever wanted to grab a coffee or take a break, but didn't know who is nearby? Project Proximity lets you send a quick ping to see who is nearby. Instead of tracking your location on a map 24/7, it only checks when you explicitly ask it to. If a friend (or a friend-of-a-friend if you choose) is around and both are in discovery mode, you get to know about that through a gentle notification. It’s designed for spontaneous human interaction without the privacy creep of continuous location sharing.
