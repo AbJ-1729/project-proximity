@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The App | Project Proximity</title>
+    <meta name="description" content="How Project Proximity works, from the everyday experience to the privacy engineering under the hood.">
+    <link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+
+    <nav class="nav">
+        <div class="nav-inner">
+            <a class="brand" href="index.html"><span class="dot"></span> Project Proximity</a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="concept.html">The Idea</a>
+                <a href="app.html" class="active">The App</a>
+                <a href="sneak-peek.html">Sneak Peek</a>
+                <a href="https://groups.google.com/g/project-proximity-testers/" target="_blank" rel="noopener" class="nav-cta">Join tester group</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">&#9790;</button>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero wrap">
+            <span class="eyebrow">The App</span>
+            <h1>Simple to use.<br><span class="gradient-text">Serious underneath.</span></h1>
+            <p class="lead">On the surface it is one switch and a short list of people nearby. Underneath is a privacy model designed so the system learns as little about you as possible while still being genuinely useful.</p>
+        </section>
+
+        <section class="wrap section-tight">
+            <h2>The everyday experience</h2>
+            <ul class="facts">
+                <li>Sign in with your phone number on Android. Pick the people from your contacts you would actually want to run into.</li>
+                <li>They are only told you picked them if they pick you back. No notifications, no pressure, no one-sided exposure.</li>
+                <li>When you feel social, flip discovery on and optionally set a vibe like "coffee free" or "studying".</li>
+                <li>Anyone from your circle who is in the same place and also discovering shows up, with their name from your own contacts and a rough closeness like "very close".</li>
+                <li>Turn discovery off and you immediately stop being discoverable. Block anyone, anytime, in one tap.</li>
+            </ul>
+        </section>
+        <br><br>
+        <section class="wrap">
+            <div class="split">
+                <div class="card">
+                    <span class="tag">1ST DEGREE</span>
+                    <h3>Friends show as themselves</h3>
+                    <p class="muted">A direct friend appears with the name you saved for them, their current vibe, and a coarse proximity. That name comes from your phone, not our servers.</p>
+                </div>
+                <div class="card">
+                    <span class="tag">2ND DEGREE</span>
+                    <h3>Friends of friends stay private</h3>
+                    <p class="muted">Opt in to a wider circle and a friend of a friend appears only as "Friend of Sam", the person you both know. Their name is never shown. You get introduced in person, the natural way.</p>
+                </div>
+            </div>
+        </section>
+        <br><br>
+        <section class="wrap">
+            <div class="center">
+                <span class="eyebrow">Under the hood</span>
+                <h2>The privacy engineering</h2>
+                <p class="lead center">For the technically curious and anyone evaluating the product seriously, here is how the guarantees are actually enforced.</p>
+            </div>
+
+            <div class="spec-row">
+                <div class="k">On-device hashing</div>
+                <div class="v">Contacts never leave your phone in readable form. Numbers are normalized and hashed with SHA-256 plus a shared pepper on the device, so the server only ever sees opaque hashes, never your phonebook.</div>
+            </div>
+            <div class="spec-row">
+                <div class="k">Ephemeral presence</div>
+                <div class="v">Real-time presence lives only in an in-memory store with a 15-minute time to live. There is no persistent location history; expired check-ins are evicted automatically and never written to the main database.</div>
+            </div>
+            <div class="spec-row">
+                <div class="k">Wi-Fi proof of presence</div>
+                <div class="v">Co-location is confirmed by intersecting the set of nearby Wi-Fi access points two devices can see, not by trusting a GPS coordinate. Sharing enough access points in range is strong, hard-to-spoof evidence of being in the same physical place. Your precise location never leaves the phone.</div>
+            </div>
+            <div class="spec-row">
+                <div class="k">One-way block table</div>
+                <div class="v">Blocks are enforced inside the matching query itself. A blocked person can neither match you directly nor bridge a friend-of-a-friend path to you, closing the usual back-door in social graphs.</div>
+            </div>
+            <div class="spec-row">
+                <div class="k">Configurable reach</div>
+                <div class="v">You decide whether discovery covers direct friends only or also friends of friends. Second-degree matches require both people to opt in, and the connecting friend is the only identity ever surfaced.</div>
+            </div>
+        </section>
+        <br><br>
+        <section class="wrap">
+            <div class="band">
+                <h2>See it in action</h2>
+                <p class="lead center" style="margin-bottom: 28px;">Early previews of the interface are on the sneak peek page.</p>
+                <a class="btn btn-primary" href="sneak-peek.html">View the sneak peek</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap">
+            <div class="made">Made by Abhijai Chugh</div>
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="concept.html">The Idea</a>
+                <a href="sneak-peek.html">Sneak Peek</a>
+            </div>
+            <div class="copy">Project Proximity 2026</div>
+        </div>
+    </footer>
+
+    <script src="theme.js" defer></script>
+</body>
+</html>

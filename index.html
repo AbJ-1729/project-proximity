@@ -3,241 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Proximity | Find out who's around</title>
-    <style>
-        :root {
-            --bg-color: #0a0f1d;
-            --text-primary: #ffffff;
-            --text-secondary: #8f9cae;
-            --accent-primary: #4f46e5;
-            --accent-secondary: #06b6d4;
-            --card-bg: #111827;
-            --border: #1f2937;
-            --tag-bg: rgba(6, 182, 212, 0.1);
-            --tag-text: #22d3ee;
-            --max-width: 1000px;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            padding: 60px 20px;
-        }
-
-        header {
-            max-width: var(--max-width);
-            margin: 0 auto 100px auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.3rem;
-            letter-spacing: -0.03em;
-            background: linear-gradient(135deg, #ffffff 0%, var(--text-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .badge {
-            background: rgba(79, 70, 229, 0.15);
-            color: #a5b4fc;
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border: 1px solid rgba(79, 70, 229, 0.3);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        main {
-            max-width: var(--max-width);
-            margin: 0 auto;
-        }
-
-        .hero {
-            margin-bottom: 100px;
-            position: relative;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(79,70,229,0.15) 0%, rgba(0,0,0,0) 70%);
-            z-index: -1;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.04em;
-            margin-bottom: 24px;
-            max-width: 800px;
-            background: linear-gradient(135deg, #ffffff 40%, #9ca3af 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #818cf8 0%, var(--accent-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .lead {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 650px;
-            margin-bottom: 44px;
-            font-weight: 400;
-        }
-
-        .cta-btn {
-            background: linear-gradient(135deg, var(--accent-primary) 0%, #3730a3 100%);
-            color: #ffffff;
-            border: none;
-            padding: 16px 36px;
-            border-radius: 8px;
-            font-size: 1.05rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(79, 70, 229, 0.4);
-            transition: transform 0.1s ease, box-shadow 0.1s ease;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 24px rgba(79, 70, 229, 0.5);
-        }
-
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 24px;
-            margin-top: 80px;
-            border-top: 1px solid var(--border);
-            padding-top: 80px;
-        }
-
-        .spec-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 32px;
-            border-radius: 12px;
-            transition: border-color 0.2s ease;
-            position: relative;
-        }
-
-        .spec-card:hover {
-            border-color: rgba(79, 70, 229, 0.4);
-        }
-
-        .tech-tag {
-            display: inline-block;
-            background: var(--tag-bg);
-            color: var(--tag-text);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            font-family: monospace;
-            letter-spacing: 0.05em;
-        }
-
-        .spec-card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 14px;
-            letter-spacing: -0.01em;
-            color: #f3f4f6;
-        }
-
-        .spec-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        footer {
-            max-width: var(--max-width);
-            margin: 140px auto 0 auto;
-            border-top: 1px solid var(--border);
-            padding-top: 40px;
-            font-size: 0.85rem;
-            color: #4b5563;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.6rem; }
-            .specs-grid { grid-template-columns: 1fr; }
-            footer { flex-direction: column; gap: 16px; }
-        }
-    </style>
+    <title>Project Proximity | Find your people, right where you are</title>
+    <meta name="description" content="Project Proximity is a consent-first way to discover when friends are actually nearby, without the privacy creep of always-on location sharing.">
+    <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 
-    <header>
-        <div class="logo">Project Proximity</div>
-        <div class="badge">Early Beta</div>
-    </header>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a class="brand" href="index.html"><span class="dot"></span> Project Proximity</a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="concept.html">The Idea</a>
+                <a href="app.html">The App</a>
+                <a href="sneak-peek.html">Sneak Peek</a>
+                <a href="https://groups.google.com/g/project-proximity-testers/" target="_blank" rel="noopener" class="nav-cta">Join tester group</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">&#9790;</button>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+        </div>
+    </nav>
 
     <main>
-        <section class="hero">
-            <h1>Find out who's nearby.<br><span class="gradient-text">Without the creepy tracking.</span></h1>
-            <p class="lead">Sometimes you just want to take a break without texting ten different people. Send a ping to see which friends are around right now. You only share your location when you explicitly want to.</p>
-            
-            <button class="cta-btn" onclick="window.location.href='mailto:abhijai.chugh@gmail.com?subject=Beta%20Access%20Request'">
-                Request Beta Access
-            </button>
+        <section class="hero wrap">
+            <span class="eyebrow">Consent-first social discovery</span>
+            <h1>Find your people,<br><span class="gradient-text">right where you are.</span></h1>
+            <p class="lead">Sometimes you just want a coffee or a break, without texting ten people to ask "who's around?". Project Proximity quietly tells you when someone you actually chose is nearby right now, and only when you both switch discovery on. No maps, no always-on tracking, no broadcasting where you are.</p>
+            <div class="btn-row" id="join">
+                <a class="btn btn-primary" id="join-cta" data-join-group href="https://groups.google.com/g/project-proximity-testers/" target="_blank" rel="noopener">Join the tester group</a>
+                <a class="btn btn-ghost" href="concept.html">Why we built this</a>
+            </div>
         </section>
 
-        <section class="specs-grid">
-            <div class="spec-card">
-                <span class="tech-tag">ENG: SHA-256 Client Hashing</span>
-                <h3>Choose Your Real Circle</h3>
-                <p>We don't assume everyone in your phonebook is a friend. When you join, you explicitly select who you actually want to hang out with. They won't know you selected them unless they select you back.</p>
+        <section class="wrap section-tight">
+            <div class="steps">
+                <div class="step">
+                    <div class="num">01</div>
+                    <h3>Pick your circle</h3>
+                    <p>Choose the people you actually want to run into. They are never told unless they pick you back.</p>
+                </div>
+                <div class="step">
+                    <div class="num">02</div>
+                    <h3>Flip discovery on</h3>
+                    <p>When you are open to meeting, turn discovery on. Turn it off and you vanish instantly.</p>
+                </div>
+                <div class="step">
+                    <div class="num">03</div>
+                    <h3>See who's around</h3>
+                    <p>If someone from your circle is in the same place and also discovering, they show up. Go say hi.</p>
+                </div>
             </div>
-            <div class="spec-card">
-                <span class="tech-tag">ENG: Ephemeral Redis Engine</span>
-                <h3>Zero Persistent Tracking</h3>
-                <p>We don't keep a permanent map of where you've been. When you turn on discovery mode to find friends, your ping lasts for exactly 15 minutes and then vanishes from the system entirely.</p>
+        </section>
+        <br><br>
+        <section class="wrap">
+            <div class="center">
+                <span class="eyebrow">What makes it different</span>
+                <h2>Built privacy-first, on purpose</h2>
+                <p class="lead">Most location apps ask you to trust them with everything, all the time. We designed the opposite: the system only knows where you are for the few minutes you choose to be discoverable, and never in precise detail.</p>
             </div>
-            <div class="spec-card">
-                <span class="tech-tag">ENG: BSSID Intersection Mapping</span>
-                <h3>Proof You Are Actually There</h3>
-                <p>No fake locations or remote stalking. The app uses localized network signals to mathematically verify that people are actually in the exact same physical area before they can match with you.</p>
+            <div class="grid">
+                <div class="card">
+                    <span class="tag">YOUR CIRCLE</span>
+                    <h3>You choose who counts</h3>
+                    <p>Your phonebook is not your friend list. You explicitly select who you want to see, and it stays mutual: they only learn about it if they choose you too.</p>
+                </div>
+                <div class="card">
+                    <span class="tag">EPHEMERAL</span>
+                    <h3>Nothing lingers</h3>
+                    <p>There is no permanent map of where you have been. A presence check-in lasts 15 minutes, then disappears from the system entirely.</p>
+                </div>
+                <div class="card">
+                    <span class="tag">REAL PRESENCE</span>
+                    <h3>Actually there, not spoofed</h3>
+                    <p>Instead of a raw GPS pin, the app uses nearby Wi-Fi signals to prove two people are genuinely in the same place, privately and hard to fake.</p>
+                </div>
+                <div class="card">
+                    <span class="tag">FRIENDS OF FRIENDS</span>
+                    <h3>Expand, safely</h3>
+                    <p>Opt in to a wider circle and a friend of a friend can appear as "Friend of Sam", with their name kept private. You meet through the person you both know.</p>
+                </div>
             </div>
-            <div class="spec-card">
-                <span class="tech-tag">ENG: Trust Bridge State Machine</span>
-                <h3>The "Friend of a Friend" Safety Net</h3>
-                <p>When you expand your search outside your immediate circle, you stay protected. If a friend-of-a-friend is nearby, you only see a gentle notification saying "A friend of [Sarah] is nearby." Your identity is only revealed if you both hit accept.</p>
+        </section>
+        <br><br>
+        <section class="wrap">
+            <div class="band">
+                <span class="eyebrow">Be among the first</span>
+                <h2>Help shape it from day one</h2>
+                <p class="lead center" style="margin-bottom: 28px;">We are about to open private testing. Join the group to be among the first to try it, get the early Android builds, and have a direct line to influence what we build next.</p>
+                <a class="btn btn-primary" id="join-cta-2" data-join-group href="https://groups.google.com/g/project-proximity-testers/" target="_blank" rel="noopener">Join the tester group</a>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div>&copy; 2026 Project Proximity. Network state secure.</div>
-        <div>No maps. No algorithmic feeds. Just real-world hangouts.</div>
+    <footer class="footer">
+        <div class="wrap">
+            <div class="made">Made by Abhijai Chugh</div>
+            <div class="links">
+                <a href="concept.html">The Idea</a>
+                <a href="app.html">The App</a>
+                <a href="sneak-peek.html">Sneak Peek</a>
+            </div>
+            <div class="copy">Project Proximity 2026</div>
+        </div>
     </footer>
 
+    <script src="theme.js" defer></script>
 </body>
 </html>
